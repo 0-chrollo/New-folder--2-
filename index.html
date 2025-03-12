@@ -49,43 +49,43 @@
 
     
     <style>
-        /* Global Styles */
+        /* Social Page Container */
         .social-page {
-          font-family: 'Arial', sans-serif;
-          background-color: #f9f9f9;
-          color: #333;
-        
-        
-          
+          max-width: 1100px;
+          margin: 20px auto;
+          padding: 20px;
         }
     
         h1 {
           font-size: 2rem;
           font-weight: bold;
-          color: #080707;
+          color: #1a1a1a;
+          text-align: center;
           margin-bottom: 20px;
         }
     
-        #posts-list {
-        
-         
+        /* Grid Layout for Posts */
+        .posts-list {
+            justify-content: center; /* Centers post horizontally */
+          align-items: center; 
           display: grid;
-          grid-template-columns: 1fr;
-         
+          grid-template-columns: 1fr; /* Default: Single Column */
+          gap: 20px;
+          width: 100%;
         }
     
-        /* Post Card Design */
+        /* Post Card Styling */
         .post-card {
-          
-            justify-content: center;
-            align-items: center;
-            justify-self: center;
-         
-          background: rgb(255, 255, 255);
-          border-radius: 3px;
-         
-          box-shadow: 0px 4px 10px rgba(28, 28, 28, 0.053);
+          background: white;
+          border-radius: 10px;
+          padding: 15px;
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
           transition: transform 0.3s ease, box-shadow 0.3s ease;
+          display: flex;
+          justify-content: center; /* Centers post horizontally */
+          align-items: center; /* Centers post vertically */
+          width: 100%;
+          min-height: 400px; /* Ensures consistent height */
         }
     
         .post-card:hover {
@@ -94,46 +94,48 @@
         }
     
         .fb-post {
-          
+          width: 100%;
+          max-width: 500px; /* Ensures posts don't stretch too much */
         }
     
-        /* Responsive Grid */
+        /* Responsive Layout Adjustments */
         @media (min-width: 600px) {
-          #posts-list {
-            grid-template-columns: repeat(2, 1fr);
+          .posts-list {
+            grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
           }
-
-          .post-card {
-          
-          justify-content: center;
-          align-items: center;
-          justify-self: center;
-       width:100%;
-        background: rgb(255, 255, 255);
-        border-radius: 3px;
-       
-        box-shadow: 0px 4px 10px rgba(28, 28, 28, 0.053);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-  
-      .post-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
-      }
-  
         }
     
         @media (min-width: 1024px) {
-          #posts-list {
-            grid-template-columns: repeat(2, 1fr);
+          .posts-list {
+            grid-template-columns: repeat(2, 1fr); /* Two columns on large screens */
+          }
+        }
+    
+        /* Custom Sizes for Small & Large Screens */
+        @media (max-width: 599px) {
+          .post-card {
+            justify-content: center; /* Centers post horizontally */
+          align-items: center; 
+            min-height: 300px; /* Adjust card height on small screens */
+          }
+        }
+    
+        @media (min-width: 1200px) {
+          .fb-post {
+            justify-content: center; /* Centers post horizontally */
+          align-items: center; 
+            max-width: 450px; /* Adjust post size for large screens */
           }
         }
       </style>
-
-    <div class="social-page">
+    </head>
+    <body>
     
-      <div id="posts-list">
-        <h2>Loading latest posts...</h2>
+      <div class="social-page">
+        <h1>Knackpass Facebook Posts</h1>
+        <div id="posts-list" class="posts-list">
+          <h2>Loading latest posts...</h2>
+        </div>
       </div>
     
       <script>
@@ -152,7 +154,7 @@
     
         // Fetch posts from the Knackpass Page using Graph API
         function fetchKnackpassPosts() {
-          const pageAccessToken = 'EAAI3cSiATHgBO8XAU8TsWKqZAZBHbyzyO98ZBWXDgA4ZBZCPQkzR298FiPBWtcya8VZCaa85DZAo6ZB0KrmiTNafZCGLuHK0BSlrjZC6lvAbWXvQudNOD3MmsrcRE64M7tPLCZAwrZBdvEJ94hgybLitHpB3EJ5dFT2UuAm28W8L53LfZCot8RBcwfD78osU4Ti1TjbcZD';
+          const pageAccessToken = 'EAAI3cSiATHgBO8XAU8TsWKqZAZBHbyzyO98ZBWXDgA4ZBZCPQkzR298FiPBWtcya8VZCaa85DZAo6ZB0KrmiTNafZCGLuHK0BSlrjZC6lvAbWXvQudNOD3MmsrcRE64M7tPLCZAwrZBdvEJ94hgybLitHpB3EJ5dFT2UuAm28W8L53LfZCot8RBcwfD78osU4Ti1TjbcZD'; // Replace with your Page Access Token
           const pageId = '226574383862818'; // Knackpass Page ID
     
           fetch(`https://graph.facebook.com/v22.0/${pageId}/feed?fields=permalink_url&limit=5&access_token=${pageAccessToken}`)
@@ -191,7 +193,6 @@
           FB.XFBML.parse();
         }
       </script>
-    </div>
 </body>
 </html>
 
