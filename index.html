@@ -49,21 +49,15 @@
     <style>
         /* Modern & Slightly Futuristic Design */
         body {
-          font-family: 'Arial', sans-serif;
-          background: linear-gradient(135deg, #111827, #1f2937);
-          color: #ffffff;
+          font-family: 'Arial';
+           background: white;
+          color: black;
           text-align: center;
           padding: 20px;
         }
     
-        h1 {
-          font-size: 2.2rem;
-          font-weight: bold;
-          background: linear-gradient(90deg, #14b8a6, #3b82f6);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-    
+      
+        
         #posts-list {
           display: flex;
           flex-wrap: wrap;
@@ -127,7 +121,7 @@
 
     // Fetch posts from the Knackpass Page using Graph API
     function fetchKnackpassPosts() {
-      const pageAccessToken = 'EAAI3cSiATHgBO7vZCa1P5iuWnsvYmlXc0DdbwC86ZCxlzI9s8n06vEqjN8iVeRpMn6ZCeN8OzKIFc9cw7sfj5S816AsvTlMZC7gaNH7WZADHT7HM4gy0JfNFgYttwwnzbEpgiSDBq9bxBGxLvH8UOXDLPc9joRODFSEQ5MuMGDJqXMBVUysUbZCMuQnSyzTb5iPWXCekodZAxzDLjzwKqssKxoZD'
+      const pageAccessToken = 'EAAI3cSiATHgBOZBWpweHxJycr04LptYS2URCfsbTBUUhrCgW8nvKloXDH7rQVrxEPwGjannQKzwSuK3FvUqWAbeG1cyFZBwqXkE6eBMOljE8SY2hId4s16ADDwMFJEVcXnpF95uU24th9Y4eEnRxv6PnkLHzZCOI9439qBqtPoZAn1HFZCyAfGzTK'
       const pageId = '226574383862818'; // Knackpass Page ID
 
       fetch(`https://graph.facebook.com/v22.0/${pageId}/feed?fields=permalink_url&limit=5&access_token=${pageAccessToken}`)
