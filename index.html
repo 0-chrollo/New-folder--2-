@@ -48,61 +48,125 @@
     </div>
 
 
-  <h1>Knackpass Facebook Posts</h1>
-  <div id="posts-list">
-    <h2>Latest Posts from Knackpass</h2>
-    <!-- The posts will be appended here -->
-  </div>
+    <style>
+        /* Modern & Slightly Futuristic Design */
+        body {
+          font-family: 'Arial', sans-serif;
+          background: linear-gradient(135deg, #111827, #1f2937);
+          color: #ffffff;
+          text-align: center;
+          padding: 20px;
+        }
+    
+        h1 {
+          font-size: 2.2rem;
+          font-weight: bold;
+          background: linear-gradient(90deg, #14b8a6, #3b82f6);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+    
+        #posts-list {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+          margin-top: 20px;
+        }
+    
+        .post-card {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border-radius: 12px;
+          padding: 15px;
+          width: 90%;
+          max-width: 500px;
+          box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.2);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+    
+        .post-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0px 6px 20px rgba(0, 255, 255, 0.4);
+        }
+    
+        .fb-post {
+          width: 100%;
+        }
+    
+        @media (min-width: 768px) {
+          .post-card {
+            width: 45%;
+          }
+        }
+    
+        @media (min-width: 1024px) {
+          .post-card {
+            width: 30%;
+          }
+        }
+      </style>
 
-  <script>
-    // Initialize the Facebook SDK
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '623909103750264', // Your Facebook App ID
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v22.0'
-      });
+      <h1>Knackpass Facebook Posts</h1>
       
-      // Load posts faster with a limit of 5 posts and no delay
-      fetchKnackpassPosts();
-    };
-
-    // Fetch posts from the Knackpass Page using Graph API
-    function fetchKnackpassPosts() {
-      const pageAccessToken = 'EAAI3cSiATHgBOZBrJNq4clK2auZA1xY3lMMGSY70GKCpHeYhv9pyvliNrIUdZA2Q9XaRxoD1Jno8RALGitTAXwK6kFSUlxr13i8BaQr2cdoxLPSrRvKQAl37NCPJNzZCzI9VcojZA2RvHNmIh3a71MKt3LZBkyN5z6FvGdj4raU4IC0klCmdh0f1lZCJOLrSShalFHQD0hxd1NiTlAyAf36qB4ZD'; // Replace with your Page Access Token for Knackpass
-      const pageId = '226574383862818'; // Knackpass Page ID
-
-      fetch(`https://graph.facebook.com/v22.0/${pageId}/feed?fields=permalink_url&limit=5&access_token=${pageAccessToken}`)
-        .then(response => response.json())
-        .then(data => {
-          displayEmbeddedPosts(data.data);
-        })
-        .catch(error => {
-          console.error('Error fetching Facebook posts:', error);
-        });
-    }
-
-    // Display the embedded posts using Facebook's embed functionality
-    function displayEmbeddedPosts(posts) {
-      const postsList = document.getElementById('posts-list');
-      
-      posts.forEach(function(post) {
-        // Create a new div for the embedded post
-        const div = document.createElement('div');
-        div.classList.add('fb-post');
-        div.setAttribute('data-href', post.permalink_url);
-        div.setAttribute('data-width', '500');
-        div.setAttribute('data-show-text', 'true');
-        
-        // Append the div to the posts list
-        postsList.appendChild(div);
-      });
-      
-      // Reinitialize the Facebook SDK after adding posts dynamically
-      FB.XFBML.parse();
-    }
-  </script>
-</body>
-</html>
-
+      <div id="posts-list">
+        <h2>Loading latest posts...</h2>
+      </div>
+    
+      <script>
+        // Initialize the Facebook SDK
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '623909103750264', // Your Facebook App ID
+            cookie     : true,
+            xfbml      : true,
+            version    : 'v22.0'
+          });
+    
+          // Load posts faster with a limit of 5 posts
+          fetchKnackpassPosts();
+        };
+    
+        // Fetch posts from the Knackpass Page using Graph API
+        function fetchKnackpassPosts() {
+          const pageAccessToken = 'EAAI3cSiATHgBOZBrJNq4clK2auZA1xY3lMMGSY70GKCpHeYhv9pyvliNrIUdZA2Q9XaRxoD1Jno8RALGitTAXwK6kFSUlxr13i8BaQr2cdoxLPSrRvKQAl37NCPJNzZCzI9VcojZA2RvHNmIh3a71MKt3LZBkyN5z6FvGdj4raU4IC0klCmdh0f1lZCJOLrSShalFHQD0hxd1NiTlAyAf36qB4ZD'; // Replace with your Page Access Token
+          const pageId = '226574383862818'; // Knackpass Page ID
+    
+          fetch(`https://graph.facebook.com/v22.0/${pageId}/feed?fields=permalink_url&limit=5&access_token=${pageAccessToken}`)
+            .then(response => response.json())
+            .then(data => {
+              displayEmbeddedPosts(data.data);
+            })
+            .catch(error => {
+              console.error('Error fetching Facebook posts:', error);
+            });
+        }
+    
+        // Display the embedded posts using Facebook's embed functionality
+        function displayEmbeddedPosts(posts) {
+          const postsList = document.getElementById('posts-list');
+          postsList.innerHTML = ""; // Clear the loading text
+          
+          posts.forEach(function(post) {
+            // Create a card container for the post
+            const postCard = document.createElement('div');
+            postCard.classList.add('post-card');
+    
+            // Create a new div for the embedded post
+            const div = document.createElement('div');
+            div.classList.add('fb-post');
+            div.setAttribute('data-href', post.permalink_url);
+            div.setAttribute('data-width', '100%');
+            div.setAttribute('data-show-text', 'true');
+    
+            // Append the post into the card
+            postCard.appendChild(div);
+            postsList.appendChild(postCard);
+          });
+          
+          // Reinitialize the Facebook SDK after adding posts dynamically
+          FB.XFBML.parse();
+        }
+      </script>
+    </body>
+    </html>
