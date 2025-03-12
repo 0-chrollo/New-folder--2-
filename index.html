@@ -51,7 +51,7 @@
         body {
           font-family: 'Arial', sans-serif;
           background:white;
-          color: #ffffff;
+          color: black;
           text-align: center;
           padding: 20px;
         }
@@ -122,7 +122,7 @@
       });
       
       // Load posts faster with a limit of 5 posts and no delay
-      fetchKnackpassPosts(3);
+      fetchKnackpassPosts();
     };
 
     // Fetch posts from the Knackpass Page using Graph API
@@ -149,7 +149,7 @@
         const div = document.createElement('div');
         div.classList.add('fb-post');
         div.setAttribute('data-href', post.permalink_url);
-        div.setAttribute('data-width', '500');
+        div.setAttribute('data-width', '400');
         div.setAttribute('data-show-text', 'true');
         
         // Append the div to the posts list
