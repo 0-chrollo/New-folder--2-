@@ -51,7 +51,7 @@
     <style>
         /* Social Page Container */
         .social-page {
-          max-width: 1200px;
+          max-width: 100%;
           margin: 20px auto;
           padding: 20px;
         }
@@ -75,8 +75,8 @@
         /* Post Card Styling */
         .post-card {
           background: white;
-          border-radius: 10px;
-          padding: 15px;
+          border-radius: 3px;
+          padding:25px 30px;
           box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
           transition: transform 0.3s ease, box-shadow 0.3s ease;
           display: flex;
@@ -112,13 +112,19 @@
         /* Custom Sizes for Small & Large Screens */
         @media (max-width: 599px) {
           .post-card {
-            min-height: 300px; /* Adjust card height on small screens */
+            min-height: 300px; 
+            display: flex;
+          justify-content: center; /* Centers post horizontally */
+          align-items: center; /* Centers post vertically *//* Adjust card height on small screens */
           }
         }
     
         @media (min-width: 1200px) {
           .fb-post {
-            max-width: 450px; /* Adjust post size for large screens */
+            max-width: 450px; 
+            display: flex;
+          justify-content: center; /* Centers post horizontally */
+          align-items: center; /* Centers post vertically *//* Adjust post size for large screens */
           }
         }
       </style>
