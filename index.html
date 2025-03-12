@@ -48,11 +48,14 @@
     </div>
     <style>
         /* Global Styles */
-        body {
+        .social-page {
           font-family: 'Arial', sans-serif;
           background-color: #f9f9f9;
           color: #333;
-          text-align: center;
+          padding: 20px;
+          align-items: center;
+          justify-content: center;
+         
           
         }
     
@@ -64,19 +67,23 @@
         }
     
         #posts-list {
+        
+         
           display: grid;
           grid-template-columns: 1fr;
           gap: 25px;
           max-width: 1000px;
           margin: 0 auto;
-          padding: 15px;
+          padding: 6%;
         }
     
         /* Post Card Design */
         .post-card {
+      
+         
           background: rgb(230, 230, 230);
           border-radius: 3px;
-          padding: 10px;
+          padding: 30px;
           box-shadow: 0px 4px 10px rgba(49, 49, 49, 0.053);
           transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -104,7 +111,7 @@
         }
       </style>
 
-      <h1>Knackpass Facebook Posts</h1>
+    <div class="social-page">
     
       <div id="posts-list">
         <h2>Loading latest posts...</h2>
@@ -165,7 +172,7 @@
           FB.XFBML.parse();
         }
       </script>
-    
+    </div>
 </body>
 </html>
 
