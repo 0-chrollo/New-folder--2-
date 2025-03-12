@@ -75,11 +75,11 @@
         .post-card {
           background: white;
           border-radius: 3px;
-          padding: 10px;
+          padding: 15px;
           box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
           transition: transform 0.3s ease, box-shadow 0.3s ease;
-          display: flex;
-          justify-content: center; /* Centers post horizontally */
+          display:inline;
+           /* Centers post horizontally */
           align-items: center; /* Centers post vertically */
           width: 100%;
           min-height: 350px; /* Keeps a smaller but uniform height */
@@ -94,7 +94,7 @@
         /* Facebook Post Styling */
         .fb-post {
           width: 100%;
-          max-width: 400px; /* Smaller Posts */
+          max-width: 100px; /* Smaller Posts */
           display: flex;
           justify-content: center;
         }
@@ -115,10 +115,10 @@
         /* Adjustments for Small Screens */
         @media (max-width: 599px) {
           .post-card {
-            min-height: 280px; /* Smaller Card on Mobile */
+            min-height: 180px; /* Smaller Card on Mobile */
           }
           .fb-post {
-            max-width: 320px; /* Smaller Post for Mobile */
+            max-width: 120px; /* Smaller Post for Mobile */
           }
         }
     
@@ -130,8 +130,7 @@
         }
       </style>
     </head>
-    <body>
-    
+  
       <div class="social-page">
         <h1>Knackpass Facebook Posts</h1>
         <div id="posts-list" class="posts-list">
