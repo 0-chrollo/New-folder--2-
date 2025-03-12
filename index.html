@@ -47,94 +47,102 @@
     </div>
 
     
- <style>
-  
-    .page-container {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 20px;
-        display: flex;
-        justify-content: center;
-    }
-    .social-page {
-        width: 100%;
-        max-width: 900px;
-    }
-    .posts-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 16px;
-        justify-content: center;
-    }
-    .post-card {
-        background: white;
-        padding: 10px;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: center;
-    }
-    @media (min-width: 600px) {
-        .posts-list {
-            grid-template-columns: repeat(2, 1fr);
+    <style>
+        .page-container {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
         }
-    }
-</style>
-
+        .social-page {
+            width: 100%;
+            max-width: 900px;
+        }
+        .posts-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            justify-content: center;
+        }
+        .post-card {
+            background: white;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            min-height: 400px;
+        }
+        .post-card .fb-post {
+            width: 100% !important;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        @media (min-width: 600px) {
+            .posts-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
 <main class="page-container">
-<div class="social-page"> 
-    <div id="posts-list" class="posts-list">
-        <h2>Loading latest posts...</h2>
+    <div class="social-page"> 
+        <div id="posts-list" class="posts-list">
+            <h2>Loading latest posts...</h2>
+        </div>
     </div>
-</div>
 
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId      : '623909103750264',
-            cookie     : true,
-            xfbml      : true,
-            version    : 'v22.0'
-        });
-        fetchKnackpassPosts();
-    };
-    
-    function fetchKnackpassPosts() {
-        const pageAccessToken = 'EAAI3cSiATHgBO8XAU8TsWKqZAZBHbyzyO98ZBWXDgA4ZBZCPQkzR298FiPBWtcya8VZCaa85DZAo6ZB0KrmiTNafZCGLuHK0BSlrjZC6lvAbWXvQudNOD3MmsrcRE64M7tPLCZAwrZBdvEJ94hgybLitHpB3EJ5dFT2UuAm28W8L53LfZCot8RBcwfD78osU4Ti1TjbcZD';
-        const pageId = '226574383862818';
-        fetch(`https://graph.facebook.com/v22.0/${pageId}/feed?fields=permalink_url&limit=5&access_token=${pageAccessToken}`)
-            .then(response => response.json())
-            .then(data => {
-                displayEmbeddedPosts(data.data);
-            })
-            .catch(error => {
-                console.error('Error fetching Facebook posts:', error);
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '623909103750264',
+                cookie     : true,
+                xfbml      : true,
+                version    : 'v22.0'
             });
-    }
-    
-    function displayEmbeddedPosts(posts) {
-        const postsList = document.getElementById('posts-list');
-        postsList.innerHTML = "";
+            fetchKnackpassPosts();
+        };
         
-        posts.forEach(function(post) {
-            const postCard = document.createElement('div');
-            postCard.classList.add('post-card');
-            
-            const div = document.createElement('div');
-            div.classList.add('fb-post');
-            div.setAttribute('data-href', post.permalink_url);
-            div.setAttribute('data-width', '100%');
-            div.setAttribute('data-show-text', 'true');
-            
-            postCard.appendChild(div);
-            postsList.appendChild(postCard);
-        });
+        function fetchKnackpassPosts() {
+            const pageAccessToken = 'EAAI3cSiATHgBO8XAU8TsWKqZAZBHbyzyO98ZBWXDgA4ZBZCPQkzR298FiPBWtcya8VZCaa85DZAo6ZB0KrmiTNafZCGLuHK0BSlrjZC6lvAbWXvQudNOD3MmsrcRE64M7tPLCZAwrZBdvEJ94hgybLitHpB3EJ5dFT2UuAm28W8L53LfZCot8RBcwfD78osU4Ti1TjbcZD';
+            const pageId = '226574383862818';
+            fetch(`https://graph.facebook.com/v22.0/${pageId}/feed?fields=permalink_url&limit=5&access_token=${pageAccessToken}`)
+                .then(response => response.json())
+                .then(data => {
+                    displayEmbeddedPosts(data.data);
+                })
+                .catch(error => {
+                    console.error('Error fetching Facebook posts:', error);
+                });
+        }
         
-        FB.XFBML.parse();
-    }
-</script>
-
-
+        function displayEmbeddedPosts(posts) {
+            const postsList = document.getElementById('posts-list');
+            postsList.innerHTML = "";
+            
+            posts.forEach(function(post) {
+                const postCard = document.createElement('div');
+                postCard.classList.add('post-card');
+                
+                const div = document.createElement('div');
+                div.classList.add('fb-post');
+                div.setAttribute('data-href', post.permalink_url);
+                div.setAttribute('data-width', '100%');
+                div.setAttribute('data-show-text', 'true');
+                
+                postCard.appendChild(div);
+                postsList.appendChild(postCard);
+            });
+            
+            FB.XFBML.parse();
+        }
+    </script>
+</main>
 </body>
 </html>
 
