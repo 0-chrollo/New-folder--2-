@@ -51,7 +51,7 @@
     <style>
         /* Social Page Container */
         .social-page {
-         
+          max-width: 1000px;
           margin: 20px auto;
           padding: 20px;
         }
@@ -74,16 +74,14 @@
     
         /* Post Card Styling */
         .post-card {
-          background: rgb(243, 243, 243);
+          background: white;
           border-radius: 3px;
-          padding: 20px;
-          box-shadow: 0px 3px 8px rgba(26, 26, 26, 0.1);
+          padding: 10px;
+          box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
           transition: transform 0.3s ease, box-shadow 0.3s ease;
           display: flex;
-          display: block;
-
-          /* Centers post horizontally */
-          /* Centers post vertically */
+          justify-content: center; /* Centers post horizontally */
+          align-items: center; /* Centers post vertically */
           width: 100%;
           min-height: 350px; /* Keeps a smaller but uniform height */
           overflow: hidden;
@@ -121,7 +119,7 @@
             min-height: 280px; /* Smaller Card on Mobile */
           }
           .fb-post {
-            max-width: 400px; /* Smaller Post for Mobile */
+            max-width: 320px; /* Smaller Post for Mobile */
           }
         }
     
@@ -132,10 +130,11 @@
           }
         }
       </style>
-
+    </head>
+    <body>
     
       <div class="social-page">
-        <h1></h1>
+        <h1>Knackpass Facebook Posts</h1>
         <div id="posts-list" class="posts-list">
           <h2>Loading latest posts...</h2>
         </div>
@@ -157,7 +156,7 @@
     
         // Fetch posts from the Knackpass Page using Graph API
         function fetchKnackpassPosts() {
-          const pageAccessToken = 'EAAI3cSiATHgBO8XAU8TsWKqZAZBHbyzyO98ZBWXDgA4ZBZCPQkzR298FiPBWtcya8VZCaa85DZAo6ZB0KrmiTNafZCGLuHK0BSlrjZC6lvAbWXvQudNOD3MmsrcRE64M7tPLCZAwrZBdvEJ94hgybLitHpB3EJ5dFT2UuAm28W8L53LfZCot8RBcwfD78osU4Ti1TjbcZD'; 
+          const pageAccessToken = 'EAAI3cSiATHgBO8XAU8TsWKqZAZBHbyzyO98ZBWXDgA4ZBZCPQkzR298FiPBWtcya8VZCaa85DZAo6ZB0KrmiTNafZCGLuHK0BSlrjZC6lvAbWXvQudNOD3MmsrcRE64M7tPLCZAwrZBdvEJ94hgybLitHpB3EJ5dFT2UuAm28W8L53LfZCot8RBcwfD78osU4Ti1TjbcZD'; // Replace with your Page Access Token
           const pageId = '226574383862818'; // Knackpass Page ID
     
           fetch(`https://graph.facebook.com/v22.0/${pageId}/feed?fields=permalink_url&limit=5&access_token=${pageAccessToken}`)
