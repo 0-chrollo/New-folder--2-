@@ -74,15 +74,15 @@
     
         /* Post Card Styling */
         .post-card {
-          background: white;
-          border-radius: 3px;
-          padding:25px 30px;
+          background-color: #ffffff;
+         
+          padding: 4%;
           box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
           transition: transform 0.3s ease, box-shadow 0.3s ease;
           display: flex;
           justify-content: center; /* Centers post horizontally */
           align-items: center; /* Centers post vertically */
-          width: 100%;
+         
           min-height: 400px; /* Ensures consistent height */
         }
     
@@ -99,12 +99,17 @@
         /* Responsive Layout Adjustments */
         @media (min-width: 600px) {
           .posts-list {
+            justify-content: center; /* Centers post horizontally */
+          align-items: center; 
             grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
           }
         }
     
         @media (min-width: 1024px) {
           .posts-list {
+            display: flex;
+            justify-content: center; /* Centers post horizontally */
+          align-items: center; 
             grid-template-columns: repeat(2, 1fr); /* Two columns on large screens */
           }
         }
@@ -121,15 +126,15 @@
     
         @media (min-width: 1200px) {
           .fb-post {
-            max-width: 450px; 
-            display: flex;
+        max-width: 450px; 
+        display: flex;
           justify-content: center; /* Centers post horizontally */
           align-items: center; /* Centers post vertically *//* Adjust post size for large screens */
           }
         }
       </style>
-    </head>
-    <body>
+  
+
     
       <div class="social-page">
         <h1>Knackpass Facebook Posts</h1>
