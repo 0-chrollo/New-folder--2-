@@ -51,7 +51,7 @@
     <style>
         /* Social Page Container */
         .social-page {
-          max-width: 1100px;
+          max-width: 1200px;
           margin: 20px auto;
           padding: 20px;
         }
@@ -66,8 +66,6 @@
     
         /* Grid Layout for Posts */
         .posts-list {
-            justify-content: center; /* Centers post horizontally */
-          align-items: center; 
           display: grid;
           grid-template-columns: 1fr; /* Default: Single Column */
           gap: 20px;
@@ -114,16 +112,12 @@
         /* Custom Sizes for Small & Large Screens */
         @media (max-width: 599px) {
           .post-card {
-            justify-content: center; /* Centers post horizontally */
-          align-items: center; 
             min-height: 300px; /* Adjust card height on small screens */
           }
         }
     
         @media (min-width: 1200px) {
           .fb-post {
-            justify-content: center; /* Centers post horizontally */
-          align-items: center; 
             max-width: 450px; /* Adjust post size for large screens */
           }
         }
