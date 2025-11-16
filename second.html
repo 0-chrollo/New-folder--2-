@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Packages - Cabinet Making Business</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius:5px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #ffd700;
+        }
+
+        .badge {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: #ffd700;
+            color: #333;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 0.8em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .package-name {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 2.5em;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .price-note {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .features li:last-child {
+            border-bottom: none;
+        }
+
+        .features li:before {
+            content: "✓";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .cta-button:hover {
+            opacity: 0.9;
+        }
+
+        .benefits {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .benefits h2 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8em;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .benefit-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .benefit-title {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .benefit-text {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Website Packages</h1>
+            <p class="subtitle">Professional websites for your cabinet making business</p>
+        </header>
+
+        <div class="pricing-grid">
+            <!-- Basic Package -->
+            <div class="pricing-card">
+                <h3 class="package-name">Basic</h3>
+                <div class="price">R2,500</div>
+                <p class="price-note">One-time payment</p>
+                <ul class="features">
+                    <li>Single-page website</li>
+                    <li>Mobile-responsive design</li>
+                    <li>Contact form</li>
+                    <li>Gallery (up to 5 images)</li>
+                    <li>Free business email</li>
+                    <li>Basic SEO setup</li>
+                </ul>
+                <button class="cta-button" onclick="alert('Contact: Send WhatsApp message to get started with Basic Package')">Get Started</button>
+            </div>
+
+            <!-- Standard Package -->
+            <div class="pricing-card">
+                <h3 class="package-name">Standard</h3>
+                <div class="price">R3,500</div>
+                <p class="price-note">One-time payment</p>
+                <ul class="features">
+                    <li>Multi-page website</li>
+                    <li>Mobile-responsive design</li>
+                    <li>Enhanced gallery (15+  images)</li>
+                    <li>Contact form + WhatsApp</li>
+                    <li>Free business email</li>
+                    <li>Google Maps integration</li>
+                    <li>Advanced SEO optimization</li>
+                </ul>
+                <button class="cta-button" onclick="alert('Contact: Send WhatsApp message to get started with Standard Package')">Get Started</button>
+            </div>
+
+            <!-- Professional Package -->
+            <div class="pricing-card featured">
+                <span class="badge">POPULAR</span>
+                <h3 class="package-name">Professional</h3>
+                <div class="price">R4,500</div>
+                <p class="price-note">One-time payment</p>
+                <ul class="features">
+                    <li>Comprehensive website</li>
+                    <li>Before & After showcases</li>
+                    <li>Service-specific pages</li>
+                    <li>Testimonials section</li>
+                    <li>Gallery (up to 50 images)</li>
+                    <li>Quote request form</li>
+                    <li>Social media integration</li>
+                    <li>Advanced SEO</li>
+                </ul>
+                <button class="cta-button" onclick="alert('Contact: Send WhatsApp message to get started with Professional Package')">Get Started</button>
+            </div>
+
+            <!-- Premium Package -->
+            <div class="pricing-card">
+                <h3 class="package-name">Premium</h3>
+                <div class="price">R5,500</div>
+                <p class="price-note">One-time payment</p>
+                <ul class="features">
+                    <li>Full-featured website</li>
+                    <li>Detailed project case studies</li>
+                    <li>Blog section</li>
+                    <li>Downloadable catalogs</li>
+                    <li>Advanced contact forms</li>
+                    <li>Premium design & animations</li>
+                    <li>Priority support</li>
+                    
+                </ul>
+                <button class="cta-button" onclick="alert('Contact: Send WhatsApp message to get started with Premium Package')">Get Started</button>
+            </div>
+        </div>
+
+        <!-- Benefits Section -->
+        <div class="benefits">
+            <h2>All Packages Include</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-title">No Monthly Fees</div>
+                    <div class="benefit-text">Pay once, own forever</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔒</div>
+                    <div class="benefit-title">Lifetime Ownership</div>
+                    <div class="benefit-text">Your website, your property</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📧</div>
+                    <div class="benefit-title">Free Business Email</div>
+                    <div class="benefit-text">Professional email included</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💡</div>
+                    <div class="benefit-title">Save Long-Term</div>
+                    <div class="benefit-text">No future website purchases</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+  </html>
